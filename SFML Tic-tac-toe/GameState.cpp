@@ -65,6 +65,10 @@ namespace ShowTime
 			{
 				data->machine.AddState(StateRef(new PauseState(data)), false);
 			}
+			else if(data->input.IsSpriteClicked(*gridSprite, sf::Mouse::Button::Left, data->window))
+			{
+				CheckAndPlacePiece();
+			}
 		}
 	}
 	void GameState::Update(float dt)
@@ -102,6 +106,64 @@ namespace ShowTime
 				gridPieces[x][y]->setColor(sf::Color(255, 255, 255, 0));
 			}
 
+		}
+	}
+	void GameState::CheckAndPlacePiece()
+	{
+		sf::Vector2f touchPoint = data->input.GetMousePosition(data->window);
+		sf::FloatRect gridSize = gridSprite->getGlobalBounds();
+		sf::Vector2f gapOutsideOfGrid = sf::Vector2f((SCREEN_WIDTH - gridSize.size.x) / 2.f, (SCREEN_HEIGHT - gridSize.size.y) / 2.f);
+	
+		sf::Vector2f gridLocalTouchPos = sf::Vector2f(touchPoint.x - gapOutsideOfGrid.x, touchPoint.y - gapOutsideOfGrid.y);
+
+		sf::Vector2f gridSectionSize = sf::Vector2f(gridSize.size.x / GRID_COLUMS, gridSize.size.y / GRID_ROWS);
+
+		int column, row;
+
+		if (gridLocalTouchPos.x < gridSectionSize.x)
+		{
+			column = 1;
+		}
+		else if (gridLocalTouchPos.x < gridSectionSize.x * 2)
+		{
+			column = 2;
+		}
+		else if (gridLocalTouchPos.x < gridSize.size.x)
+		{
+			column = 3;
+		}
+
+		if (gridLocalTouchPos.y < gridSectionSize.y)
+		{
+			row = 1;
+		}
+		else if (gridLocalTouchPos.y < gridSectionSize.y * 2)
+		{
+			row = 2;
+		}
+		else if (gridLocalTouchPos.y < gridSize.size.y)
+		{
+			row = 3;
+		}
+
+		if (gridArray[column-1][row-1] == EMPTY_PIECE)
+		{
+			gridArray[column - 1][row - 1] = turn;
+
+			if (PLAYER_PIECE == turn)
+			{
+				gridPieces[column -1][row-1]->setTexture(data->assets.GetTexture("X Piece"));
+
+				turn = AI_PIECE;
+			}
+			else if (AI_PIECE == turn)
+			{
+				gridPieces[column - 1][row - 1]->setTexture(data->assets.GetTexture("O Piece"));
+
+				turn = PLAYER_PIECE;
+			}
+
+			gridPieces[column - 1][row - 1]->setColor(sf::Color(255, 255, 255, 255));
 		}
 	}
 }

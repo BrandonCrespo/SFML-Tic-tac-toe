@@ -20,6 +20,8 @@ namespace ShowTime
 	private:
 		void InitGridPieces();
 
+		void CheckAndPlacePiece();
+
 		GameDataRef data;
 
 		sf::Sprite* background;
