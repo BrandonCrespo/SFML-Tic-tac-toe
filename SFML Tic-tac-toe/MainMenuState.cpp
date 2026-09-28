@@ -30,8 +30,8 @@ namespace ShowTime
 		playButtonOuter = new sf::Sprite(data->assets.GetTexture("Play Button Outer"));
 
 		title->setPosition(sf::Vector2f((SCREEN_WIDTH / 2.f) - (title->getGlobalBounds().size.x / 2.f), title->getGlobalBounds().size.y * 0.1));
-		playButton->setPosition(sf::Vector2f((SCREEN_WIDTH / 2.f) - (playButton->getGlobalBounds().size.x / 2.f), (SCREEN_HEIGTH / 2) - (playButton->getGlobalBounds().size.y / 2.f)));
-		playButtonOuter->setPosition(sf::Vector2f((SCREEN_WIDTH / 2.f) - (playButtonOuter->getGlobalBounds().size.x / 2.f), (SCREEN_HEIGTH / 2) - (playButtonOuter->getGlobalBounds().size.y / 2.f)));
+		playButton->setPosition(sf::Vector2f((SCREEN_WIDTH / 2.f) - (playButton->getGlobalBounds().size.x / 2.f), (SCREEN_HEIGHT / 2) - (playButton->getGlobalBounds().size.y / 2.f)));
+		playButtonOuter->setPosition(sf::Vector2f((SCREEN_WIDTH / 2.f) - (playButtonOuter->getGlobalBounds().size.x / 2.f), (SCREEN_HEIGHT / 2) - (playButtonOuter->getGlobalBounds().size.y / 2.f)));
 	}
 
 	void MainMenuState::HandleInput()

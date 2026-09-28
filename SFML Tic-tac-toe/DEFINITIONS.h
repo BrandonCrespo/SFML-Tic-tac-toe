@@ -1,7 +1,7 @@
 #pragma once
 
 #define SCREEN_WIDTH 768
-#define SCREEN_HEIGTH 1136
+#define SCREEN_HEIGHT 1136
 
 #define SPLASH_STATE_SHOW_TIME 3
 
@@ -19,10 +19,12 @@
 
 #define MAIN_MENU_PLAY_BUTTON_OUTER_FILEPATH "Resources/res/Play Button Outer.png"
 #define PAUSE_BUTTON "Resources/res/Pause Button.png"
-#define X_PIECE_BUTTON "Resources/res/X.png"
-#define O_PIECE_BUTTON "Resources/res/O.png"
-#define X_WINNING_PIECE_BUTTON "Resources/res/X Win.png"
-#define O_WINNING_PIECE_BUTTON "Resources/res/O Win.png"
+#define X_PIECE_FILEPATH "Resources/res/X.png"
+#define O_PIECE_FILEPATH "Resources/res/O.png"
+#define X_WINNING_PIECE_FILEPATH "Resources/res/X Win.png"
+#define O_WINNING_PIECE_FILEPATH "Resources/res/O Win.png"
+
+#define GRID_SPRITE_FILEPATH "Resources/res/Grid.png"
 
 #define X_PIECE 8
 #define O_PIECE 0
@@ -37,3 +39,6 @@
 #define STATE_PLACING_PIECE 94
 #define STATE_AI_PLAYING 93
 #define STATE_DRAW 92
+
+#define GRID_ROWS 3
+#define GRID_COLUMS 3

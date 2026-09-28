@@ -3,6 +3,7 @@
 #include <SFML/Graphics.hpp>
 #include "State.h"
 #include "Game.h"
+#include "DEFINITIONS.h"
 
 namespace ShowTime
 {
@@ -17,10 +18,15 @@ namespace ShowTime
 		void Draw(float dt) override;
 
 	private:
+		void InitGridPieces();
+
 		GameDataRef data;
 
 		sf::Sprite* background;
 		sf::Sprite* pauseButton;
+		sf::Sprite* gridSprite;
+		sf::Sprite* gridPieces[GRID_COLUMS][GRID_ROWS];
+		int gridArray[GRID_COLUMS][GRID_ROWS];
 
 		int turn;
 		int gameState;

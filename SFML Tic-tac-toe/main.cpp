@@ -3,6 +3,6 @@
 
 int main()
 {
-    ShowTime::Game(SCREEN_WIDTH, SCREEN_HEIGTH, "TicTacToe");
+    ShowTime::Game(SCREEN_WIDTH, SCREEN_HEIGHT, "TicTacToe");
     return EXIT_SUCCESS;
 }
