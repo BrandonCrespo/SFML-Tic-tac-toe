@@ -8,8 +8,14 @@
 #define SPLASH_SCENE_BACKGROUND_FILEPATH "Resources/res/Splash Background.png"
 #define MAIN_MENU_BACKGROUND_FILEPATH "Resources/res/Main Menu Background.png"
 #define GAME_BACKGROUND_FILEPATH "Resources/res/Main Menu Background.png"
+#define PAUSE_BACKGROUND_FILEPATH "Resources/res/Main Menu Background.png"
+
 #define MAIN_MENU_TITLE_FILEPATH "Resources/res/Game Title.png"
+
 #define MAIN_MENU_PLAY_BUTTON_FILEPATH "Resources/res/Play Button.png"
+#define RESUME_BUTTON_FILEPATH "Resources/res/Resume Button.png"
+#define HOME_BUTTON_FILEPATH "Resources/res/Home Button.png"
+
 #define MAIN_MENU_PLAY_BUTTON_OUTER_FILEPATH "Resources/res/Play Button Outer.png"
 #define PAUSE_BUTTON "Resources/res/Pause Button.png"
 #define X_PIECE_BUTTON "Resources/res/X.png"

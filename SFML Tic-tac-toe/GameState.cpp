@@ -4,6 +4,8 @@
 
 #include <iostream>
 
+#include "PauseState.h"
+
 namespace ShowTime
 {
 	GameState::GameState(GameDataRef data) :
@@ -39,7 +41,7 @@ namespace ShowTime
 
 			if (data->input.IsSpriteClicked(*pauseButton, sf::Mouse::Button::Left, data->window))
 			{
-				//data->machine.AddState(StateRef(new GameState(data)), true);
+				data->machine.AddState(StateRef(new PauseState(data)), false);
 			}
 		}
 	}
