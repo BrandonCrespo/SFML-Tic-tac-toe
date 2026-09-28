@@ -5,6 +5,7 @@
 #include <iostream>
 
 #include "PauseState.h"
+#include "GameOverState.h"
 
 namespace ShowTime
 {

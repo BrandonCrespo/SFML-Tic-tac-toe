@@ -15,6 +15,7 @@
 #define MAIN_MENU_PLAY_BUTTON_FILEPATH "Resources/res/Play Button.png"
 #define RESUME_BUTTON_FILEPATH "Resources/res/Resume Button.png"
 #define HOME_BUTTON_FILEPATH "Resources/res/Home Button.png"
+#define RETRY_BUTTON_FILEPATH "Resources/res/Retry Button.png"
 
 #define MAIN_MENU_PLAY_BUTTON_OUTER_FILEPATH "Resources/res/Play Button Outer.png"
 #define PAUSE_BUTTON "Resources/res/Pause Button.png"
