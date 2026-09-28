@@ -78,10 +78,18 @@ namespace ShowTime
 			}
 		}
 	}
+
 	void GameState::Update(float dt)
 	{
-
+		if (STATE_DRAW == gameState || STATE_LOSE == gameState || STATE_WON == gameState)
+		{
+			if (clock.getElapsedTime().asSeconds() > TIME_BEFORE_SHOWING_GAME_OVER)
+			{
+				data->machine.AddState(StateRef(new GameOverState(data), true);
+			}
+		}
 	}
+
 	void GameState::Draw(float dt)
 	{
 		data->window.clear();
@@ -216,7 +224,7 @@ namespace ShowTime
 
 		if (STATE_DRAW == gameState || STATE_LOSE == gameState || STATE_WON == gameState)
 		{
-			//gameover
+			clock.restart();
 		}
 
 		std::cout << gameState << std::endl;

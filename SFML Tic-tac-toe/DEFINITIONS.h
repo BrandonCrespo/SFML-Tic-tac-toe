@@ -42,3 +42,5 @@
 
 #define GRID_ROWS 3
 #define GRID_COLUMS 3
+
+#define TIME_BEFORE_SHOWING_GAME_OVER 3

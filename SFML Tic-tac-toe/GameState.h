@@ -39,6 +39,8 @@ namespace ShowTime
 		int gameState;
 
 		AI* ai;
+
+		sf::Clock clock;
 	};
 }
 
