@@ -5,6 +5,8 @@
 #include "Game.h"
 #include "DEFINITIONS.h"
 
+#include "AI.h"
+
 namespace ShowTime
 {
 	class GameState : public State
@@ -35,6 +37,8 @@ namespace ShowTime
 
 		int turn;
 		int gameState;
+
+		AI* ai;
 	};
 }
 

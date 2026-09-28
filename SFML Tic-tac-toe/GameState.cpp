@@ -28,6 +28,8 @@ namespace ShowTime
 		gameState = STATE_PLAYING;
 		turn = PLAYER_PIECE;
 
+		ai = new AI(turn, data);
+
 		data->assets.LoadTexture("Pause Button", PAUSE_BUTTON);
 		data->assets.LoadTexture("Game Background", GAME_BACKGROUND_FILEPATH);
 		data->assets.LoadTexture("Grid Sprite", GRID_SPRITE_FILEPATH);
@@ -160,16 +162,6 @@ namespace ShowTime
 				gridPieces[column -1][row-1]->setTexture(data->assets.GetTexture("X Piece"));
 
 				CheckPlayerHasWon(turn);
-
-				turn = AI_PIECE;
-			}
-			else if (AI_PIECE == turn)
-			{
-				gridPieces[column - 1][row - 1]->setTexture(data->assets.GetTexture("O Piece"));
-
-				CheckPlayerHasWon(turn);
-
-				turn = PLAYER_PIECE;
 			}
 
 			gridPieces[column - 1][row - 1]->setColor(sf::Color(255, 255, 255, 255));
@@ -186,6 +178,23 @@ namespace ShowTime
 		Check3PiecesForMatch(2, 0, 2, 1, 2, 2, turn);
 		Check3PiecesForMatch(0, 0, 1, 1, 2, 2, turn);
 		Check3PiecesForMatch(0, 2, 1, 1, 2, 0, turn);
+
+		if (STATE_WON != gameState)
+		{
+			gameState = STATE_AI_PLAYING;
+
+			ai->PlacePiece(&gridArray, &gridPieces, &gameState);
+
+			Check3PiecesForMatch(0, 0, 1, 0, 2, 0, AI_PIECE);
+			Check3PiecesForMatch(0, 1, 1, 1, 2, 1, AI_PIECE);
+			Check3PiecesForMatch(0, 2, 1, 2, 2, 2, AI_PIECE);
+			Check3PiecesForMatch(0, 0, 0, 1, 0, 2, AI_PIECE);
+			Check3PiecesForMatch(1, 0, 1, 1, 1, 2, AI_PIECE);
+			Check3PiecesForMatch(2, 0, 2, 1, 2, 2, AI_PIECE);
+			Check3PiecesForMatch(0, 0, 1, 1, 2, 2, AI_PIECE);
+			Check3PiecesForMatch(0, 2, 1, 1, 2, 0, AI_PIECE);
+		}
+
 
 		int emptyNum = GRID_COLUMS * GRID_ROWS;
 
@@ -221,7 +230,7 @@ namespace ShowTime
 
 			if (O_PIECE == pieceToCheck)
 			{
-				winningPieceStr = "0 Winning Piece";
+				winningPieceStr = "O Winning Piece";
 			}
 			else
 			{
