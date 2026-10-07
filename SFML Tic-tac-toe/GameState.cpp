@@ -85,7 +85,7 @@ namespace ShowTime
 		{
 			if (clock.getElapsedTime().asSeconds() > TIME_BEFORE_SHOWING_GAME_OVER)
 			{
-				data->machine.AddState(StateRef(new GameOverState(data), true);
+				data->machine.AddState(StateRef(new GameOverState(data)), true);
 			}
 		}
 	}
