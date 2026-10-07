@@ -9,7 +9,7 @@ namespace ShowTime
 	class GameOverState : public State
 	{
 	public:
-		GameOverState(GameDataRef data);
+		GameOverState(GameDataRef data, int gameOverState);
 
 		void Init() override;
 		void HandleInput() override;
@@ -21,6 +21,8 @@ namespace ShowTime
 
 		sf::Sprite* retryButton;
 		sf::Sprite* homeButton;
+
+		int gameState;
 	};
 }
 

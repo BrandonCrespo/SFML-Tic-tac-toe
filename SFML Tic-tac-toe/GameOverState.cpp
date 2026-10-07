@@ -9,12 +9,12 @@
 
 namespace ShowTime
 {
-	GameOverState::GameOverState(GameDataRef data) :
+	GameOverState::GameOverState(GameDataRef data, int gameOverState) :
 		data(data),
 		retryButton(nullptr),
 		homeButton(nullptr)
 	{
-
+		gameState = gameOverState;
 	}
 
 	void GameOverState::Init()
@@ -55,8 +55,18 @@ namespace ShowTime
 	}
 	void GameOverState::Draw(float dt)
 	{
-		data->window.clear(sf::Color::Red);
-
+		if (STATE_LOSE == gameState)
+		{
+			data->window.clear(sf::Color::Red);
+		}
+		else if (STATE_WON == gameState)
+		{
+			data->window.clear(sf::Color::Green);
+		}
+		else
+		{
+			data->window.clear(sf::Color::Black);
+		}
 		data->window.draw(*retryButton);
 		data->window.draw(*homeButton);
 
